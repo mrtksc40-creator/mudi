@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudi Catering Ltd | Murat Kuscu - Professional Mobile Chef UK</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mudi: {
+                            gold: '#C08237',
+                            lightGold: '#D4A359',
+                            darkGold: '#986121',
+                            navy: '#0A0E17',
+                            cardBg: '#121824',
+                            border: 'rgba(192, 130, 55, 0.25)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        brand: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .brand-gradient-text {
+            background: linear-gradient(135deg, #F3D088 0%, #C08237 50%, #986121 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg-poster {
+            background: linear-gradient(180deg, rgba(10, 14, 23, 0.82) 0%, rgba(10, 14, 23, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+        }
+        .poster-frame {
+            border: 2px solid #C08237;
+            position: relative;
+        }
+        .glass-panel {
+            background: rgba(18, 24, 36, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(192, 130, 55, 0.2);
+        }
+        /* Custom styled mudi font reproduction */
+        .font-mudi {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+    </style>
+</head>
+<body class="bg-mudi-navy text-slate-100 font-sans antialiased selection:bg-mudi-gold selection:text-black">
+
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-mudi-navy/95 backdrop-blur-md border-b border-mudi-border" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Recreated Branding Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- Golden Speed Cloche Icon SVG -->
+                <div class="w-11 h-11 relative flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-mudi-gold transition-transform duration-300 group-hover:scale-105" fill="none" stroke="currentColor" stroke-width="3">
+                        <!-- Speed Lines -->
+                        <path d="M10 40 H30 M5 50 H25 M12 60 H28" stroke-linecap="round" stroke-width="4"/>
+                        <!-- Golden Circle / Cloche Base -->
+                        <circle cx="58" cy="50" r="32" fill="#C08237" fill-opacity="0.15" stroke="#C08237" stroke-width="3"/>
+                        <path d="M40 58 C40 40 76 40 76 58 Z" fill="#C08237" stroke="#C08237"/>
+                        <circle cx="58" cy="38" r="4" fill="#C08237"/>
+                        <!-- Fork accent inside circle -->
+                        <path d="M52 64 V56 M58 64 V54 M64 64 V56 M52 56 C52 60 64 60 64 56" stroke="#0A0E17" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Brand Typography: mudi catering -->
+                <div class="flex flex-col">
+                    <div class="flex items-baseline font-brand tracking-tight">
+                        <span class="text-2xl sm:text-3xl font-extrabold text-white lowercase tracking-tight">mudi</span>
+                    </div>
+                    <span class="text-[10px] font-bold tracking-[0.25em] text-mudi-lightGold uppercase -mt-1.5">CATERING</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links & Direct Phone -->
+            <div class="hidden lg:flex items-center space-x-8 font-medium text-sm">
+                <a href="#about" class="text-slate-300 hover:text-mudi-lightGold transition-colors">About Murat Kuscu</a>
+                <a href="#services" class="text-slate-300 hover:text-mudi-lightGold transition-colors">Chef Services</a>
+                <a href="#calculator" class="text-slate-300 hover:text-mudi-lightGold transition-colors">Cost Calculator</a>
+                <a href="#contact" class="text-slate-300 hover:text-mudi-lightGold transition-colors">Contact Us</a>
+                
+                <a href="tel:+447898077230" class="px-5 py-2.5 rounded-full bg-mudi-gold hover:bg-mudi-lightGold text-mudi-navy font-bold transition-all duration-300 flex items-center gap-2 shadow-lg shadow-mudi-gold/20">
+                    <i data-lucide="phone-call" class="w-4 h-4"></i> +44 7898 077230
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center gap-3">
+                <a href="tel:+447898077230" class="p-2.5 rounded-full bg-mudi-gold text-mudi-navy font-bold">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                </a>
+                <button id="mobile-menu-btn" class="p-2 text-slate-300 hover:text-mudi-lightGold focus:outline-none" aria-label="Toggle Navigation">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-mudi-navy border-b border-mudi-border px-6 pt-3 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-mudi-lightGold font-medium border-b border-slate-800">About Murat Kuscu</a>
+            <a href="#services" class="block py-2 text-slate-300 hover:text-mudi-lightGold font-medium border-b border-slate-800">Chef Services</a>
+            <a href="#calculator" class="block py-2 text-slate-300 hover:text-mudi-lightGold font-medium border-b border-slate-800">Rate Calculator</a>
+            <a href="#contact" class="block py-2 text-slate-300 hover:text-mudi-lightGold font-medium border-b border-slate-800">Contact</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <a href="tel:+447898077230" class="w-full text-center py-3 rounded-xl bg-mudi-gold text-mudi-navy font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Call +44 7898 077230
+                </a>
+                <a href="https://wa.me/447898077230" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3 rounded-xl bg-emerald-600 text-white font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Direct
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-bg-poster min-h-screen flex items-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- Chef Tag & Registered UK Company -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-mudi-gold/10 border border-mudi-gold/30 text-mudi-lightGold text-xs font-bold uppercase tracking-widest">
+                    <i data-lucide="award" class="w-4 h-4 text-mudi-gold"></i> MURAT KUSCU — Mobile Chef Services UK
+                </div>
+
+                <!-- Poster Tagline Heading -->
+                <div class="relative py-2">
+                    <div class="inline-block poster-frame px-6 py-4 rounded-xl bg-mudi-navy/80 backdrop-blur-md shadow-2xl">
+                        <h1 class="font-brand text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+                            Where Would You Like <br class="hidden sm:inline"/>Your Chef To Come?
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- Descriptive Text -->
+                <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Providing high-calibre relief chef solutions, commercial kitchen cover, and bespoke event catering across the UK since 2020. Fast, reliable, and compliant with strict UK food hygiene standards.
+                </p>
+
+                <!-- Quick Action Buttons -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="https://wa.me/447898077230?text=Hello%20Chef%20Murat,%20I%20would%20like%20to%20book%20a%20mobile%20chef." 
+                       target="_blank" rel="noopener noreferrer" 
+                       class="w-full sm:w-auto px-8 py-4 rounded-xl bg-mudi-gold hover:bg-mudi-lightGold text-mudi-navy font-extrabold transition-all duration-300 shadow-xl shadow-mudi-gold/20 flex items-center justify-center gap-3 text-base">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Direct Booking
+                    </a>
+                    <a href="tel:+447898077230" 
+                       class="w-full sm:w-auto px-8 py-4 rounded-xl bg-mudi-cardBg border border-mudi-border hover:border-mudi-gold text-white font-bold transition-all duration-300 flex items-center justify-center gap-2 text-base">
+                        <i data-lucide="phone" class="w-5 h-5 text-mudi-gold"></i> Call +44 7898 077230
+                    </a>
+                </div>
+
+                <!-- Quick Badges -->
+                <div class="pt-4 flex flex-wrap justify-center lg:justify-start gap-3 text-xs font-semibold text-slate-300">
+                    <span class="px-3 py-1.5 rounded-lg bg-mudi-cardBg border border-slate-800 flex items-center gap-1.5">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-mudi-gold"></i> Level 2 Hygiene Certified
+                    </span>
+                    <span class="px-3 py-1.5 rounded-lg bg-mudi-cardBg border border-slate-800 flex items-center gap-1.5">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-mudi-gold"></i> Emergency Relief Cover
+                    </span>
+                    <span class="px-3 py-1.5 rounded-lg bg-mudi-cardBg border border-slate-800 flex items-center gap-1.5">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-mudi-gold"></i> Operating Since 2020
+                    </span>
+                </div>
+            </div>
+
+            <!-- Poster Style Right Card -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="w-full max-w-md glass-panel p-6 sm:p-8 rounded-2xl border border-mudi-gold/30 shadow-2xl relative">
+                    <!-- Gold Circle Branding Backdrop Accent -->
+                    <div class="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-mudi-gold/20 blur-2xl pointer-events-none"></div>
+
+                    <!-- Chef Profile Header -->
+                    <div class="flex items-center gap-4 pb-6 border-b border-slate-800">
+                        <div class="w-16 h-16 rounded-full bg-mudi-gold/20 border-2 border-mudi-gold flex items-center justify-center text-mudi-gold shrink-0 overflow-hidden">
+                            <i data-lucide="chef-hat" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-brand font-black text-xl text-white tracking-wider">MURAT KUSCU</h3>
+                            <p class="text-xs font-semibold text-mudi-lightGold tracking-widest uppercase">Professional Chef</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Mudi Catering Ltd Director</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Contact Card Details -->
+                    <div class="py-6 space-y-4">
+                        <a href="tel:+447898077230" class="flex items-center justify-between p-3.5 rounded-xl bg-mudi-navy/80 border border-slate-800 hover:border-mudi-gold transition-colors">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="phone" class="w-5 h-5 text-mudi-gold"></i>
+                                <span class="text-sm font-bold text-white">+44 7898 077230</span>
+                            </div>
+                            <span class="text-xs text-mudi-lightGold font-semibold">Call Now</span>
+                        </a>
+
+                        <a href="mailto:info@mudicatering.co.uk" class="flex items-center justify-between p-3.5 rounded-xl bg-mudi-navy/80 border border-slate-800 hover:border-mudi-gold transition-colors">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="mail" class="w-5 h-5 text-mudi-gold"></i>
+                                <span class="text-xs font-semibold text-white">info@mudicatering.co.uk</span>
+                            </div>
+                            <span class="text-xs text-mudi-lightGold font-semibold">Email</span>
+                        </a>
+                    </div>
+
+                    <!-- Cloche emblem badge -->
+                    <div class="p-4 rounded-xl bg-mudi-gold/10 border border-mudi-gold/20 text-center space-y-1">
+                        <p class="text-xs font-bold text-mudi-lightGold uppercase tracking-wider">UK Nationwide On-Site Service</p>
+                        <p class="text-[11px] text-slate-300">Hotels • Restaurants • Pubs • Private Events • Corporate</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-mudi-cardBg border-y border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden border-2 border-mudi-gold/40 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=1000" 
+                             alt="Chef Murat Kuscu at work" 
+                             class="w-full h-[460px] object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/1000x800/121824/C08237?text=Murat+Kuscu+Chef';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-mudi-navy via-transparent to-transparent"></div>
+                        
+                        <!-- Floating Badge on image -->
+                        <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-panel border border-mudi-gold/30">
+                            <p class="font-brand font-bold text-white text-sm">Murat Kuscu — Mobile Chef</p>
+                            <p class="text-xs text-mudi-lightGold">Direct On-Site Commercial Kitchen Cover</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block px-3 py-1 rounded-md bg-mudi-gold/10 border border-mudi-gold/30 text-mudi-lightGold text-xs font-bold uppercase tracking-wider">
+                        About Mudi Catering Ltd
+                    </div>
+                    <h2 class="font-brand text-3xl sm:text-4xl font-extrabold text-white">
+                        Professional Culinary Support Lead By <span class="brand-gradient-text">Murat Kuscu</span>
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        Established in 2020 in the United Kingdom, <strong class="text-white">Mudi Catering Ltd</strong> was built to solve critical staffing shortages and provide flexible, top-tier culinary expertise directly to commercial kitchens and event venues.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed text-xs sm:text-sm">
+                        With extensive hands-on experience across high-volume restaurant lines, hotel banqueting, pub kitchens, and private dining, Chef Murat Kuscu seamlessly integrates into your existing team to maintain dish quality, kitchen speed, and full health and safety compliance.
+                    </p>
+
+                    <!-- Key Strengths Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-mudi-navy border border-slate-800 flex items-start gap-3">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-mudi-gold shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="text-white text-sm font-bold">Food Hygiene Level 2</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Strict adherence to UK Food Safety & HACCP standards.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-mudi-navy border border-slate-800 flex items-start gap-3">
+                            <i data-lucide="zap" class="w-5 h-5 text-mudi-gold shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="text-white text-sm font-bold">Rapid Emergency Cover</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Instant relief cover for unexpected chef absences.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-mudi-navy border border-slate-800 flex items-start gap-3">
+                            <i data-lucide="utensils-crossed" class="w-5 h-5 text-mudi-gold shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="text-white text-sm font-bold">Versatile Menus</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Adaptable to Mediterranean, British, and modern cuisines.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-mudi-navy border border-slate-800 flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-mudi-gold shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="text-white text-sm font-bold">UK Mobile Service</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Travels directly to your location wherever needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 bg-mudi-navy">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 rounded-md bg-mudi-gold/10 border border-mudi-gold/30 text-mudi-lightGold text-xs font-bold uppercase tracking-wider">
+                    Our Specialized Services
+                </span>
+                <h2 class="font-brand text-3xl sm:text-4xl font-extrabold text-white">How Mudi Catering Supports Your Kitchen</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Flexible solutions designed to keep your business operating at peak efficiency without compromising quality.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="rounded-2xl bg-mudi-cardBg border border-slate-800 p-8 flex flex-col justify-between hover:border-mudi-gold/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-xl bg-mudi-gold/10 border border-mudi-gold/30 flex items-center justify-center text-mudi-gold group-hover:bg-mudi-gold group-hover:text-mudi-navy transition-all duration-300">
+                            <i data-lucide="clock" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-brand text-xl font-bold text-white group-hover:text-mudi-lightGold transition-colors">
+                            Relief & Emergency Cover
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Short-notice, highly experienced relief chef cover for restaurants, pubs, and hotels facing illness, holidays, or staff turnover.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 pt-2">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mudi-gold"></i> Daily or weekly shift cover</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mudi-gold"></i> Fast brigade integration</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mudi-gold"></i> Minimal setup time required</li>
+                        </ul>
+                    </div>
+                    <a href="#calculator" class="mt-8 pt-4 border-t border-slate-800 inline-flex items-center justify-between text-mudi-lightGold text-sm font-bold group-hover:translate-x-1 transition-transform">
+                        <span>Calculate Rate</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="rounded-2xl bg-mudi-cardBg border border-mudi-gold/40 p-8 flex flex-col justify-between hover:border-mudi-gold transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden shadow-xl">
+                    <div class="absolute top-0 right-0 bg-mudi-gold text-mudi-navy font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-bl-lg">Most Requested</div>
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-xl bg-mudi-gold/10 border border-mudi-gold/30 flex items-center justify-center text-mudi-gold group-hover:bg-mudi-gold group-hover:text-mudi-navy transition-all duration-300">
+                            <i data-lucide="chef-hat" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-brand text-xl font-bold text-white group-hover:text-mudi-lightGold transition-colors">
+                            Contract & Seasonal Chef
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Longer-term contract chef placement to manage seasonal rushes, menu redesigns, or temporary kitchen leadership.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 pt-2">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mudi-gold"></i> Cost control & prep planning</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mudi-gold"></i> Staff training & standards</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mudi-gold"></i> High volume consistency</li>
+                        </ul>
+                    </div>
+                    <a href="#calculator" class="mt-8 pt-4 border-t border-slate-800 inline-flex items-center justify-between text-mudi-lightGold text-sm font-bold group-hover:translate-x-1 transition-transform">
+                        <span>Calculate Contract</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="rounded-2xl bg-mudi-cardBg border border-slate-800 p-8 flex flex-col justify-between hover:border-mudi-gold/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-xl bg-mudi-gold/10 border border-mudi-gold/30 flex items-center justify-center text-mudi-gold group-hover:bg-mudi-gold group-hover:text-mudi-navy transition-all duration-300">
+                            <i data-lucide="sparkles" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-brand text-xl font-bold text-white group-hover:text-mudi-lightGold transition-colors">
+                            On-Site Event Catering
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Bespoke mobile chef services for corporate events, private functions, weddings, and pop-up dining experiences.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 pt-2">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mudi-gold"></i> Customized gourmet menus</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mudi-gold"></i> On-site fresh cooking</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mudi-gold"></i> Full kitchen cleanup</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 pt-4 border-t border-slate-800 inline-flex items-center justify-between text-mudi-lightGold text-sm font-bold group-hover:translate-x-1 transition-transform">
+                        <span>Book Event Chef</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-20 px-4 sm:px-6 lg:px-8 bg-mudi-cardBg border-t border-slate-800">
+        <div class="max-w-4xl mx-auto">
+            
+            <div class="text-center space-y-3 mb-10">
+                <span class="px-3 py-1 rounded-md bg-mudi-gold/10 border border-mudi-gold/30 text-mudi-lightGold text-xs font-bold uppercase tracking-wider">
+                    Instant Booking Estimator
+                </span>
+                <h2 class="font-brand text-3xl font-extrabold text-white">Calculate Chef Service Estimate</h2>
+                <p class="text-slate-400 text-sm">Select your requirements to estimate cost and instantly send via WhatsApp or Email.</p>
+            </div>
+
+            <div class="p-6 sm:p-10 rounded-2xl bg-mudi-navy border border-mudi-gold/30 shadow-2xl space-y-8">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Service Type</label>
+                        <select id="calc-service" onchange="calculateEstimate()" class="w-full px-4 py-3 rounded-xl bg-mudi-cardBg border border-slate-700 text-white focus:outline-none focus:border-mudi-gold">
+                            <option value="Relief Chef (Emergency Cover)" data-rate="22">Relief Chef (Emergency Cover)</option>
+                            <option value="Commercial Contract Chef" data-rate="20">Commercial Contract Chef</option>
+                            <option value="On-Site Event Catering" data-rate="25">On-Site Private Event Chef</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Estimated Days Required</label>
+                        <input type="number" id="calc-days" min="1" max="30" value="2" onchange="calculateEstimate()" onkeyup="calculateEstimate()" class="w-full px-4 py-3 rounded-xl bg-mudi-cardBg border border-slate-700 text-white focus:outline-none focus:border-mudi-gold">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Shift Hours Per Day</label>
+                    <div class="grid grid-cols-3 gap-3 text-center">
+                        <button type="button" onclick="setHours(8)" id="btn-8h" class="py-3 rounded-xl border border-mudi-gold bg-mudi-gold text-mudi-navy font-bold text-sm">8 Hours</button>
+                        <button type="button" onclick="setHours(10)" id="btn-10h" class="py-3 rounded-xl border border-slate-700 bg-mudi-cardBg text-slate-300 font-bold text-sm hover:border-mudi-gold">10 Hours</button>
+                        <button type="button" onclick="setHours(12)" id="btn-12h" class="py-3 rounded-xl border border-slate-700 bg-mudi-cardBg text-slate-300 font-bold text-sm hover:border-mudi-gold">12 Hours</button>
+                    </div>
+                </div>
+
+                <!-- Estimated Summary Box -->
+                <div class="p-6 rounded-xl bg-mudi-cardBg border border-mudi-gold/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Estimated Total Rate</p>
+                        <p class="text-xs text-mudi-lightGold mt-0.5">*Final rate depends on exact location & travel</p>
+                    </div>
+                    <div class="text-right">
+                        <span id="calc-total" class="font-brand text-4xl font-extrabold text-mudi-gold">£352</span>
+                        <span class="text-xs text-slate-400 font-normal"> approx</span>
+                    </div>
+                </div>
+
+                <!-- Send Estimate Actions -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button type="button" onclick="sendEstimateWhatsApp()" class="flex-1 py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold flex items-center justify-center gap-2 transition-colors">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i> Send Quote To WhatsApp
+                    </button>
+                    <a href="#contact" class="flex-1 py-4 px-6 rounded-xl bg-mudi-gold hover:bg-mudi-lightGold text-mudi-navy font-extrabold flex items-center justify-center gap-2 transition-colors">
+                        <i data-lucide="send" class="w-5 h-5"></i> Proceed To Detailed Booking
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-mudi-navy">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Details Card -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="px-3 py-1 rounded-md bg-mudi-gold/10 border border-mudi-gold/30 text-mudi-lightGold text-xs font-bold uppercase tracking-wider">
+                            Direct Contact
+                        </span>
+                        <h2 class="font-brand text-3xl sm:text-4xl font-extrabold text-white mt-3">
+                            Get In Touch With Chef Murat Kuscu
+                        </h2>
+                        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                            Ready to secure chef cover or discuss an upcoming event? Contact us directly via phone, WhatsApp, or email for immediate response.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <a href="tel:+447898077230" class="flex items-center space-x-4 p-4 rounded-xl bg-mudi-cardBg border border-slate-800 hover:border-mudi-gold transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-mudi-gold/10 text-mudi-gold flex items-center justify-center shrink-0">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Direct Phone / Hotline</p>
+                                <p class="text-white font-bold text-lg">+44 7898 077230</p>
+                            </div>
+                        </a>
+
+                        <a href="https://wa.me/447898077230" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 p-4 rounded-xl bg-mudi-cardBg border border-slate-800 hover:border-emerald-500 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Instant WhatsApp</p>
+                                <p class="text-emerald-400 font-bold text-lg">+44 7898 077230</p>
+                            </div>
+                        </a>
+
+                        <a href="mailto:info@mudicatering.co.uk" class="flex items-center space-x-4 p-4 rounded-xl bg-mudi-cardBg border border-slate-800 hover:border-mudi-gold transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-mudi-gold/10 text-mudi-gold flex items-center justify-center shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Email Inquiries</p>
+                                <p class="text-white font-bold text-base">info@mudicatering.co.uk</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Booking / Inquiry Form -->
+                <div class="lg:col-span-7">
+                    <div class="p-8 sm:p-10 rounded-2xl bg-mudi-cardBg border border-mudi-gold/30 shadow-2xl">
+                        
+                        <div id="form-success-banner" class="hidden mb-6 p-4 rounded-xl bg-emerald-500/20 border border-emerald-500 text-emerald-300 text-sm flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 shrink-0"></i>
+                            <span>Thank you! Your inquiry has been sent. Chef Murat Kuscu will contact you shortly.</span>
+                        </div>
+
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <h3 class="font-brand text-2xl font-bold text-white mb-2">Request Mobile Chef Service</h3>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="fullName" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Your Name *</label>
+                                    <input type="text" id="fullName" required placeholder="John Smith" class="w-full px-4 py-3 rounded-xl bg-mudi-navy border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-mudi-gold">
+                                </div>
+                                <div>
+                                    <label for="companyName" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Business / Event Name</label>
+                                    <input type="text" id="companyName" placeholder="e.g. Oak Tree Bistro" class="w-full px-4 py-3 rounded-xl bg-mudi-navy border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-mudi-gold">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Email Address *</label>
+                                    <input type="email" id="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-mudi-navy border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-mudi-gold">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Phone Number *</label>
+                                    <input type="tel" id="phone" required placeholder="+44 7123 456789" class="w-full px-4 py-3 rounded-xl bg-mudi-navy border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-mudi-gold">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="datesRequired" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Dates & Location Required</label>
+                                <input type="text" id="datesRequired" placeholder="e.g. 12-14th Oct, Manchester" class="w-full px-4 py-3 rounded-xl bg-mudi-navy border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-mudi-gold">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Details / Kitchen Requirements *</label>
+                                <textarea id="message" rows="4" required placeholder="Describe your kitchen setup, shift requirements, or event details..." class="w-full px-4 py-3 rounded-xl bg-mudi-navy border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-mudi-gold"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 px-6 rounded-xl bg-mudi-gold hover:bg-mudi-lightGold text-mudi-navy font-extrabold transition-all duration-300 flex items-center justify-center gap-2 text-base shadow-xl shadow-mudi-gold/20">
+                                <i data-lucide="send" class="w-5 h-5"></i> Submit Booking Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-mudi-navy border-t border-slate-800 text-slate-400 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            
+            <div class="md:col-span-2 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 relative flex items-center justify-center">
+                        <svg viewBox="0 0 100 100" class="w-full h-full text-mudi-gold" fill="none" stroke="currentColor" stroke-width="3">
+                            <circle cx="50" cy="50" r="35" fill="#C08237" fill-opacity="0.2" stroke="#C08237"/>
+                            <path d="M30 58 C30 40 70 40 70 58 Z" fill="#C08237"/>
+                        </svg>
+                    </div>
+                    <span class="font-brand font-black text-white text-xl lowercase">mudi <span class="uppercase text-xs text-mudi-lightGold font-bold">CATERING</span></span>
+                </div>
+                <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+                    Mudi Catering Ltd is an established UK registered provider of mobile chef services, commercial kitchen relief cover, and private event catering lead by Chef Murat Kuscu.
+                </p>
+                <div class="text-xs text-mudi-lightGold font-bold">
+                    Direct Contact: +44 7898 077230 | info@mudicatering.co.uk
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#about" class="hover:text-mudi-lightGold transition-colors">About Murat Kuscu</a></li>
+                    <li><a href="#services" class="hover:text-mudi-lightGold transition-colors">Relief Chef Services</a></li>
+                    <li><a href="#calculator" class="hover:text-mudi-lightGold transition-colors">Rate Estimator</a></li>
+                    <li><a href="#contact" class="hover:text-mudi-lightGold transition-colors">Contact & Booking</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white text-xs font-bold uppercase tracking-wider mb-4">Mudi Catering Ltd</h4>
+                <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                    Providing on-site chef solutions for UK restaurants, pubs, hotels, and events since 2020.
+                </p>
+                <span class="inline-block text-[10px] font-bold text-slate-300 bg-mudi-cardBg border border-slate-800 px-3 py-1 rounded">
+                    UK Registered Business
+                </span>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+            <p>&copy; <span id="year"></span> Mudi Catering Ltd. All rights reserved.</p>
+            <p class="mt-2 sm:mt-0 font-semibold text-slate-400">Where Would You Like Your Chef To Come?</p>
+        </div>
+    </footer>
+
+    <!-- Fixed WhatsApp Floating Action Button -->
+    <a href="https://wa.me/447898077230?text=Hello%20Chef%20Murat,%20I%20need%20a%20mobile%20chef%20inquiry" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Direct WhatsApp Chat"
+       class="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-emerald-500 hover:bg-emerald-400 text-mudi-navy shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Drawer
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Interactive Cost Calculator Logic
+        let selectedHours = 8;
+
+        function setHours(hours) {
+            selectedHours = hours;
+            [8, 10, 12].forEach(h => {
+                const btn = document.getElementById(`btn-${h}h`);
+                if (h === hours) {
+                    btn.className = "py-3 rounded-xl border border-mudi-gold bg-mudi-gold text-mudi-navy font-bold text-sm";
+                } else {
+                    btn.className = "py-3 rounded-xl border border-slate-700 bg-mudi-cardBg text-slate-300 font-bold text-sm hover:border-mudi-gold";
+                }
+            });
+            calculateEstimate();
+        }
+
+        function calculateEstimate() {
+            const serviceSelect = document.getElementById('calc-service');
+            const ratePerHour = parseFloat(serviceSelect.options[serviceSelect.selectedIndex].dataset.rate);
+            const daysInput = parseInt(document.getElementById('calc-days').value) || 1;
+
+            const total = ratePerHour * selectedHours * daysInput;
+            document.getElementById('calc-total').textContent = `£${total}`;
+        }
+
+        function sendEstimateWhatsApp() {
+            const serviceSelect = document.getElementById('calc-service').value;
+            const days = document.getElementById('calc-days').value;
+            const total = document.getElementById('calc-total').textContent;
+
+            const text = encodeURIComponent(`Hello Chef Murat, I calculated an estimate on your website for ${serviceSelect} for ${days} day(s) (${selectedHours} hours/day). Estimated total: ${total}. I would like to confirm availability.`);
+            window.open(`https://wa.me/447898077230?text=${text}`, '_blank');
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successBox = document.getElementById('form-success-banner');
+            const form = document.getElementById('contact-form');
+
+            successBox.classList.remove('hidden');
+            form.reset();
+            successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 7000);
+        }
+    </script>
+</body>
+</html>
